@@ -1,11 +1,11 @@
 /*
  ===============================================================================
- ARQUIVO............: Calculadora.java
+ ARQUIVO............: OpenWeatherMapSystem.java
  DESCRICAO..........: Codigo-fonte correspondente a implementacao de um servente,
  					  classe que define a implementacao dos metodos especificados
  					  na interface remota.
- AUTOR..............: Everton Cavalcante (everton@dimap.ufrn.br)
- MODIFICADO EM......: 16/08/2018
+ AUTOR..............: Luís Eduardo (cruxiu@ufrn.edu.br)
+ MODIFICADO EM......: 24/08/2018
  ===============================================================================
 */
 

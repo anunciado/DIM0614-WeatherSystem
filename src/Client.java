@@ -31,46 +31,64 @@ public class Client {
 		String city; 		// Argumentos aos metodos a serem invocados
 		double result; 	// Resultado da operacao
 		
+		double temperature;
+		double humidity;
+		double pressure;
+		
 		try {
-			// Interacao com o usuario, que escolhe a operacao a ser executada
-			while (true) {
-				System.out.print("\nSistema de Informações Meteorológicas");
-				System.out.print("\n1-Temperatura\n2-Umidade\n3-Pressão Atmosférica\n4-Sair");
-				System.out.print("\n\nEscolha uma opcao: ");
-				
-				choice = input.nextInt();
-				switch (choice) {
-					case 1: // Adicao
-						System.out.print("\nTemperatura");
-						System.out.print("\nDigite o nome de uma cidade: ");
-						city = input.next().toString();
-						result = stub.temperature(city); 	// Invocacao do metodo
-						System.out.print("Temperatura atual é " + result + "\n");
-						break;
-					case 2: // Subtracao
-						System.out.print("\nUmidade");
-						System.out.print("\nDigite o nome de uma cidade: ");
-						city = input.next().toString();
-						result = stub.temperature(city); 	// Invocacao do metodo
-						System.out.print("Umidade atual é " + result + "\n");
-						break;
-					case 3: // Multiplicacao
-						System.out.print("\nPressão Atmosférica");
-						System.out.print("\nDigite o nome de uma cidade: ");
-						city = input.next().toString();
-						result = stub.temperature(city); 	// Invocacao do metodo
-						System.out.print("Pressão Atmosférica atual é " + result + "\n");
-						break;
-					case 4:	// Sair
-						System.out.println("O programa sera encerrado.");
-						return;
-					default:
-						System.out.println("Opcao invalida. Por favor, tente novamente.");
-				}
-			}
-		} catch (Exception e) {
+			System.out.print("\nSistema de Informações Meteorológicas");
+			System.out.print("\nDigite o nome de uma cidade: ");
+			city = input.next().toString();
+			temperature = stub.temperature(city);
+			humidity = stub.humidity(city);
+			pressure = stub.pressure(city);
+			System.out.print("Temperatura atual é " + temperature + "°C \n");
+			System.out.print("Umidade atual é " + humidity + "% \n");
+			System.out.print("Pressão Atmosférica atual é " + pressure + "hPa \n");
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+//		try {
+//			// Interacao com o usuario, que escolhe a operacao a ser executada
+//			while (true) {
+//				System.out.print("\nSistema de Informações Meteorológicas");
+//				System.out.print("\n1-Temperatura\n2-Umidade\n3-Pressão Atmosférica\n4-Sair");
+//				System.out.print("\n\nEscolha uma opcao: ");
+//				
+//				choice = input.nextInt();
+//				switch (choice) {
+//					case 1: // Adicao
+//						System.out.print("\nTemperatura");
+//						System.out.print("\nDigite o nome de uma cidade: ");
+//						city = input.next().toString();
+//						result = stub.temperature(city); 	// Invocacao do metodo
+//						System.out.print("Temperatura atual é " + result + "\n");
+//						break;
+//					case 2: // Subtracao
+//						System.out.print("\nUmidade");
+//						System.out.print("\nDigite o nome de uma cidade: ");
+//						city = input.next().toString();
+//						result = stub.humidity(city); 	// Invocacao do metodo
+//						System.out.print("Umidade atual é " + result + "\n");
+//						break;
+//					case 3: // Multiplicacao
+//						System.out.print("\nPressão Atmosférica");
+//						System.out.print("\nDigite o nome de uma cidade: ");
+//						city = input.next().toString();
+//						result = stub.pressure(city); 	// Invocacao do metodo
+//						System.out.print("Pressão Atmosférica atual é " + result + "\n");
+//						break;
+//					case 4:	// Sair
+//						System.out.println("O programa sera encerrado.");
+//						return;
+//					default:
+//						System.out.println("Opcao invalida. Por favor, tente novamente.");
+//				}
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		
 		input.close();
 	}
