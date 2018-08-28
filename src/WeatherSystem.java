@@ -12,14 +12,16 @@
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+// The implemented interface must always extend the remote interface
 public interface WeatherSystem extends Remote {
-
-	// Temperatura
+	
+// All methods must throw the RemoteException
+	// Temperature
 	public double temperature(String city) throws RemoteException;
 	
-	// Humidade
+	// Humidity
 	public double humidity(String city) throws RemoteException;
 	
-	// Pressão
+	// Pressure
 	public double pressure(String city) throws RemoteException;
 }

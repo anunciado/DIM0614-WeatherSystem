@@ -22,12 +22,12 @@ public class OpenWeatherMapSystem extends UnicastRemoteObject implements Weather
 	
 	private static final String API_KEY = "e727e62532fa3bedf05392e295969719";
 	
-	// Construtor default
+	// Default constructor
 	protected OpenWeatherMapSystem() throws RemoteException { 
 		super(); 
 	}
 	
-	private CurrentWeather currentWeather(String city){
+	private CurrentWeather currentWeather(String city) throws RemoteException {
 		DataWeatherClient client = new UrlConnectionDataWeatherClient(API_KEY);
         CurrentWeatherOneLocationQuery currentWeatherOneLocationQuery = QueryBuilderPicker.pick()
                 .currentWeather()                   // get current weather

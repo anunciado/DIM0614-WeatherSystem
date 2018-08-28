@@ -12,17 +12,28 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 public class Server {
 	public static void main(String[] args) throws RemoteException, MalformedURLException {
-		// Execu��o do modulo de referencia remota (RMI Registry)
-		LocateRegistry.createRegistry(1099);
-		
-		// Instanciacao do servene
-		OpenWeatherMapSystem weatherSystem = new OpenWeatherMapSystem();
-		
-		// Registro do servente no modulo de referencia remota (RMI Registry)
-		Naming.rebind("rmi://localhost/WeatherSystem", weatherSystem);
-		System.out.println("Servidor pronto e registrado no RMI Registry.");
+		// Create the RMI's Registry
+		try {
+			Registry r = LocateRegistry.createRegistry(1099);
+			// Create the remote object
+			OpenWeatherMapSystem weatherSystem = new OpenWeatherMapSystem();			
+			// Register the remote object using the RMI	
+			Naming.rebind("rmi://localhost/WeatherSystem", weatherSystem);
+			System.out.println("Server is ready and registered in the RMI Registry.");
+		} catch(RemoteException ex) {
+			System.out.println("\nFail at creating the server: " + ex.getMessage());
+			ex.printStackTrace();
+		} catch(MalformedURLException ex) {
+			System.out.println("\nFail at creating the server, wrong adress input: " + ex.getMessage());
+			ex.printStackTrace();
+		}	
+		catch(Exception ex) {
+			System.out.println("\nERROR: " + ex.getMessage());
+			ex.printStackTrace();
+		}
 	}
 }
