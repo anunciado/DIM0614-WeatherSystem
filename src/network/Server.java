@@ -1,12 +1,4 @@
-/*
- ===============================================================================
- ARQUIVO............: Servidor.java
- DESCRICAO..........: Codigo-fonte correspondente a implementacao do servidor,
- 					  fazendo uso do servente que implementa a interface remota.
- AUTOR..............: Everton Cavalcante (everton@dimap.ufrn.br)
- MODIFICADO EM......: 16/08/2018
- ===============================================================================
-*/
+package network;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -14,6 +6,16 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+import service.OpenWeatherMapSystem;
+
+/**
+ * @class The Server class implements a server that uses the class 
+ * OpenWeatherMapSystem, to find weather information.
+ *
+ * @author  João Paulo (vilarjp3@ufrn.edu.br)
+ * @author  Luis Eduardo  (cruxiu@ufrn.edu.br)
+ * @version 29.08.2018
+ */
 public class Server {
 	public static void main(String[] args) throws RemoteException, MalformedURLException {
 		// Create the RMI's Registry
